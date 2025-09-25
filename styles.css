@@ -592,3 +592,16 @@ section:nth-of-type(even) {
 }
 
 
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 2px solid var(--gray-border);
+}
+
+.btn-outline:hover {
+    background-color: var(--text-dark);
+    color: var(--white-bg);
+    border-color: var(--text-dark);
+}
+
