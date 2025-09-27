@@ -605,3 +605,20 @@ section:nth-of-type(even) {
     border-color: var(--text-dark);
 }
 
+
+
+.project-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: #1e40af;
+}
+
