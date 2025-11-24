@@ -1,0 +1,490 @@
+/* ====================================================================
+   PORTFÓLIO PROFISSIONAL - ANIMAÇÕES E MICROINTERAÇÕES AVANÇADAS
+   Autor: PortfolioPro | Versão: 1.0.0
+   ==================================================================== */
+
+/* ====================================================================
+   1. ANIMAÇÕES DE ENTRADA
+   ==================================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ====================================================================
+   2. ANIMAÇÕES DE HOVER PARA CARDS
+   ==================================================================== */
+
+@keyframes elevate {
+    to {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@keyframes borderGlow {
+    0%, 100% {
+        border-color: var(--color-border);
+    }
+    50% {
+        border-color: var(--color-primary);
+    }
+}
+
+@keyframes backgroundShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ====================================================================
+   3. MICROINTERAÇÕES EM BOTÕES
+   ==================================================================== */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    animation: rippleEffect 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.hero-cta .btn-primary {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* ====================================================================
+   4. ANIMAÇÕES EM LINKS DE NAVEGAÇÃO
+   ==================================================================== */
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+/* ====================================================================
+   5. ANIMAÇÕES DE ÍCONES
+   ==================================================================== */
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.skill-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+.skill-icon:hover {
+    animation: rotate 0.6s ease-in-out;
+}
+
+/* ====================================================================
+   6. ANIMAÇÕES DE TEXTO
+   ==================================================================== */
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 49%, 100% {
+        border-right-color: transparent;
+    }
+    50%, 99% {
+        border-right-color: var(--color-primary);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero-title {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--color-primary));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+}
+
+/* ====================================================================
+   7. ANIMAÇÕES DE CARDS (Skill e Project)
+   ==================================================================== */
+
+@keyframes flip {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skill-card,
+.project-card {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.skill-card:nth-child(1) { animation-delay: 0.1s; }
+.skill-card:nth-child(2) { animation-delay: 0.2s; }
+.skill-card:nth-child(3) { animation-delay: 0.3s; }
+.skill-card:nth-child(4) { animation-delay: 0.4s; }
+.skill-card:nth-child(5) { animation-delay: 0.5s; }
+.skill-card:nth-child(6) { animation-delay: 0.6s; }
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+
+.skill-card:hover,
+.project-card:hover {
+    animation: elevate 0.3s ease-out forwards;
+}
+
+/* ====================================================================
+   8. ANIMAÇÕES DE FORMULÁRIO
+   ==================================================================== */
+
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background-color: var(--color-background);
+    padding: 0 4px;
+}
+
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    font-size: 0.875rem;
+    color: var(--color-primary);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* ====================================================================
+   9. ANIMAÇÕES DE LOADING
+   ==================================================================== */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes skeleton {
+    0%, 100% {
+        background-color: var(--color-border);
+    }
+    50% {
+        background-color: var(--color-surface);
+    }
+}
+
+.skeleton {
+    animation: skeleton 1.5s ease-in-out infinite;
+    border-radius: var(--radius-lg);
+}
+
+/* ====================================================================
+   10. ANIMAÇÕES DE SCROLL
+   ==================================================================== */
+
+@keyframes parallax {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+.fade-in-on-scroll {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* ====================================================================
+   11. ANIMAÇÕES DE SEÇÕES
+   ==================================================================== */
+
+.section-title {
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.section-title::after {
+    animation: scaleIn 0.8s ease-out 0.3s both;
+}
+
+/* ====================================================================
+   12. ANIMAÇÕES RESPONSIVAS
+   ==================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .skill-card,
+    .project-card {
+        animation-duration: 0.4s;
+    }
+
+    .hero-title {
+        animation: fadeInDown 0.6s ease-out;
+        background: none;
+        -webkit-text-fill-color: unset;
+        color: var(--color-text-dark);
+    }
+
+    .hero-cta .btn-primary {
+        animation: none;
+    }
+}
+
+/* ====================================================================
+   13. ANIMAÇÕES DE TRANSIÇÃO ENTRE PÁGINAS
+   ==================================================================== */
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: pageEnter 0.6s ease-out;
+}
+
+/* ====================================================================
+   14. EFEITOS ESPECIAIS
+   ==================================================================== */
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(37, 99, 235, 0.8);
+    }
+}
+
+.btn-primary:hover {
+    animation: glow 1.5s ease-in-out;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(90deg, var(--color-border) 25%, var(--color-surface) 50%, var(--color-border) 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* ====================================================================
+   15. EFEITOS DE TRANSIÇÃO SUAVE
+   ==================================================================== */
+
+.contact-item {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.contact-item:nth-child(1) { animation-delay: 0.1s; }
+.contact-item:nth-child(2) { animation-delay: 0.2s; }
+.contact-item:nth-child(3) { animation-delay: 0.3s; }
+.contact-item:nth-child(4) { animation-delay: 0.4s; }
+.contact-item:nth-child(5) { animation-delay: 0.5s; }
