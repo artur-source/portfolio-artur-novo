@@ -314,7 +314,98 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ====================================================================
-// 11. CONSOLE LOG DE INICIALIZAÇÃO (Para Debug)
+// 11. FUNCIONALIDADES DE WHATSAPP
+// ====================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Número do WhatsApp (sem formatação)
+    const whatsappNumber = '5511940572858';
+    
+    // Botão "Entrar em Contato" (Hero CTA)
+    const contactCTAButton = document.querySelector('.hero-cta .btn-secondary');
+    if (contactCTAButton) {
+        contactCTAButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            const message = 'Olá! Estou visitando seu portfólio e gostaria de conversar sobre um projeto.';
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        });
+    }
+    
+    // Botão "Solicitar Detalhes" para Landing Pages
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+        const projectLink = card.querySelector('.project-link');
+        
+        if (index === 1) { // Landing Pages (segundo card)
+            projectLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                const message = 'Olá, estava olhando seu portfólio e gostaria de saber mais detalhes sobre landing pages';
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+            });
+        } else if (index === 2) { // Scripts Python (terceiro card)
+            projectLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                const message = 'Olá, estava olhando seu portfólio e gostaria de saber mais detalhes sobre scripts Python e automações';
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+            });
+        }
+    });
+    
+    // Botão "Vamos Trabalhar Juntos?" (Seção de Contato)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validação básica
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !subject || !message) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+            
+            // Validação de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor, insira um email válido.');
+                return;
+            }
+            
+            // Enviar via WhatsApp
+            const whatsappMessage = `*Novo Contato do Portfólio*\n\n*Nome:* ${name}\n*Email:* ${email}\n*Assunto:* ${subject}\n*Mensagem:* ${message}`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Abrir WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Feedback visual
+            submitBtn.textContent = 'Redirecionando para WhatsApp... ✓';
+            submitBtn.disabled = true;
+            
+            // Resetar formulário
+            contactForm.reset();
+            
+            // Restaurar botão após 3 segundos
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
+        });
+    }
+});
+
+// ====================================================================
+// 12. CONSOLE LOG DE INICIALIZAÇÃO (Para Debug)
 // ====================================================================
 
 console.log('%c🚀 PortfolioPro Inicializado', 'color: #2563EB; font-size: 14px; font-weight: bold;');
