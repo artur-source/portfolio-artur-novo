@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio profissional de Artur Alves Santos - Desenvolvedor Web & Mobile | Estudante de ADS">
+    <meta name="description" content="Portfólio profissional de Artur Alves Santos - Desenvolvedor Web Júnior | Foco em Soluções Funcionais">
     <meta name="keywords" content="Desenvolvedor Web, Mobile, PHP, Python, HTML, CSS, JavaScript, Figma, UX/UI">
     <meta name="author" content="Artur Alves Santos">
-    <title>Artur Alves Santos - Desenvolvedor Web & Mobile | Portfólio</title>
+    <title>Artur Alves Santos - Desenvolvedor Web Júnior | Portfólio</title>
     
     <!-- Importação de Fontes Google -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
@@ -38,8 +38,9 @@
                 <nav class="nav">
                     <a href="#home" class="nav-link">Início</a>
                     <a href="#about" class="nav-link">Sobre</a>
-                    <a href="#skills" class="nav-link">Habilidades</a>
                     <a href="#projects" class="nav-link">Projetos</a>
+                    <a href="#skills" class="nav-link">Tecnologias</a>
+                    <a href="#experience" class="nav-link">Experiência</a>
                     <a href="#contact" class="nav-link">Contato</a>
                 </nav>
             </div>
@@ -47,15 +48,15 @@
     </header>
 
     <!-- ================================================================
-         SEÇÃO HERO (Apresentação Principal)
+         SEÇÃO HERO (Apresentação Principal) - CABEÇALHO
          ================================================================ -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Artur Alves Santos</h1>
-                <p class="hero-subtitle">Desenvolvedor Web & Mobile | Estudante de ADS</p>
+                <p class="hero-subtitle">Desenvolvedor Web Júnior</p>
                 <p class="hero-description">
-                    Transformando ideias em soluções digitais inovadoras através de código limpo e design funcional.
+                    Desenvolvimento de soluções digitais funcionais com foco em usabilidade e performance.
                 </p>
                 
                 <!-- Call-to-Action -->
@@ -72,23 +73,21 @@
          ================================================================ -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
+            <h2 class="section-title">Sobre</h2>
             
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        Sou estudante do 4º semestre de <strong>Análise e Desenvolvimento de Sistemas</strong>, apaixonado por tecnologia e inovação. 
-                        Tenho experiência prática em desenvolvimento web com <strong>HTML, CSS, PHP e SQL</strong>, além de conhecimentos 
-                        em <strong>Python</strong> para automações e projetos de machine learning.
+                        Estudante do 4º semestre de **Análise e Desenvolvimento de Sistemas**, com base em lógica de programação e arquitetura de sistemas.
                     </p>
                     <p>
-                        Meu projeto mais recente, o <strong>RegiFlex</strong>, demonstra minha capacidade de criar soluções completas, 
-                        desde o protótipo no Figma até a implementação com banco de dados e funcionalidades avançadas como QR Code.
+                        **Habilidades Práticas:** Desenvolvimento web com **HTML, CSS, PHP e SQL**, e automação com **Python**.
                     </p>
                     <p>
-                        Estou sempre em busca de novos desafios e oportunidades para aplicar meus conhecimentos em projetos reais 
-                        que façam a diferença. Possuo experiência prática em suporte técnico, onde desenvolvi habilidades em comunicação, 
-                        resolução de problemas e trabalho em equipe.
+                        **Soluções:** Especializado em criar sistemas de gestão e interfaces web que resolvem problemas de fluxo de trabalho e coleta de dados.
+                    </p>
+                    <p>
+                        **Tecnologias Dominadas (Nível Atual):** HTML5, CSS3, PHP, MySQL, Python (Scikit-learn, Pandas), Figma, Git/GitHub.
                     </p>
                 </div>
             </div>
@@ -96,11 +95,92 @@
     </section>
 
     <!-- ================================================================
-         SEÇÃO HABILIDADES
+         SEÇÃO PROJETOS
+         ================================================================ -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projetos</h2>
+            
+            <div class="projects-grid">
+                <!-- Projeto 1: RegiFlex -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>RegiFlex</h3>
+                        <span class="project-badge">Destaque</span>
+                    </div>
+                    <div class="project-details">
+                        <h4>Função</h4>
+                        <p>Desenvolvimento full-stack de um sistema de cadastro e gestão de pacientes.</p>
+                        
+                        <h4>Problema</h4>
+                        <p>Necessidade de um sistema eficiente para registro de pacientes com validação de dados e rastreabilidade via QR Code.</p>
+                        
+                        <h4>Solução</h4>
+                        <p>Implementação de backend em **PHP** com banco de dados **MySQL** para persistência. Frontend com interface responsiva e geração de **QR Code** para identificação rápida. Design e prototipagem realizados no **Figma**.</p>
+                        
+                        <h4>Resultado</h4>
+                        <p>Sistema funcional que automatiza o processo de cadastro, reduzindo erros e permitindo a consulta rápida de informações através da leitura do QR Code.</p>
+                    </div>
+                    <a href="https://artur-source.github.io/RegiFlex/" class="project-link" target="_blank" rel="noopener noreferrer">
+                        Ver Projeto →
+                    </a>
+                </div>
+
+                <!-- Projeto 2: JV STORE -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>JV STORE (Catálogo Estático)</h3>
+                    </div>
+                    <div class="project-details">
+                        <h4>Função</h4>
+                        <p>Criação de um catálogo de produtos estático e responsivo.</p>
+                        
+                        <h4>Problema</h4>
+                        <p>A loja precisava de uma vitrine digital leve e de fácil manutenção, com fluxo de compra direto para o WhatsApp.</p>
+                        
+                        <h4>Solução</h4>
+                        <p>Desenvolvimento com **HTML, CSS e JavaScript** puro. Utilização de **JSON** para gerenciar os dados dos produtos, permitindo busca e filtragem em tempo real sem a necessidade de um backend complexo.</p>
+                        
+                        <h4>Resultado</h4>
+                        <p>Catálogo otimizado para mobile, com carregamento rápido e integração direta com o **WhatsApp** para finalizar pedidos, simplificando o processo de compra para o cliente.</p>
+                    </div>
+                    <a href="https://artur-source.github.io/JVSTORE/" class="project-link" target="_blank" rel="noopener noreferrer">
+                        Ver Projeto →
+                    </a>
+                </div>
+
+                <!-- Projeto 3: Scripts Python & Automações -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Scripts Python & Automações</h3>
+                    </div>
+                    <div class="project-details">
+                        <h4>Função</h4>
+                        <p>Desenvolvimento de scripts para otimização de tarefas e demonstração de modelos preditivos.</p>
+                        
+                        <h4>Problema</h4>
+                        <p>Necessidade de automatizar cálculos repetitivos e demonstrar a aplicação de Machine Learning em cenários práticos.</p>
+                        
+                        <h4>Solução</h4>
+                        <p>Criação de scripts em **Python** utilizando bibliotecas como **Pandas** para manipulação de dados e **Scikit-learn** para construção de modelos de regressão e classificação.</p>
+                        
+                        <h4>Resultado</h4>
+                        <p>Redução do tempo gasto em tarefas manuais e prova de conceito de modelos de previsão de valor, demonstrando capacidade de aplicar lógica de dados complexa.</p>
+                    </div>
+                    <a href="#contact" class="project-link">
+                        Solicitar Detalhes →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         SEÇÃO TECNOLOGIAS
          ================================================================ -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Habilidades</h2>
+            <h2 class="section-title">Tecnologias</h2>
             
             <div class="skills-grid">
                 <!-- Front-End -->
@@ -121,44 +201,19 @@
                             <path d="M12 2v20m10-10H2M9 5l-6 6 6 6M15 5l6 6-6 6"></path>
                         </svg>
                     </div>
-                    <h3>Back-End</h3>
-                    <p>PHP, Python, SQL, MySQL</p>
+                    <h3>Back-End & DB</h3>
+                    <p>PHP, MySQL, SQL</p>
                 </div>
 
-                <!-- Design & UX/UI -->
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <path d="M21 15l-5-5L5 21"></path>
-                        </svg>
-                    </div>
-                    <h3>Design & UX/UI</h3>
-                    <p>Figma, UX/UI Design, Prototipagem</p>
-                </div>
-
-                <!-- Machine Learning -->
+                <!-- Python & Data -->
                 <div class="skill-card">
                     <div class="skill-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                     </div>
-                    <h3>Machine Learning</h3>
+                    <h3>Python & Data</h3>
                     <p>Python, Scikit-learn, Pandas</p>
-                </div>
-
-                <!-- WordPress & Elementor -->
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M12 6v12M6 12h12"></path>
-                        </svg>
-                    </div>
-                    <h3>WordPress</h3>
-                    <p>WordPress, Elementor, Customização</p>
                 </div>
 
                 <!-- Ferramentas -->
@@ -177,96 +232,22 @@
     </section>
 
     <!-- ================================================================
-         SEÇÃO PROJETOS
+         SEÇÃO EXPERIÊNCIA
          ================================================================ -->
-    <section id="projects" class="projects">
+    <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Projetos Destacados</h2>
+            <h2 class="section-title">Experiência</h2>
             
-            <div class="projects-grid">
-                <!-- Projeto 1: RegiFlex -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>RegiFlex</h3>
-                        <span class="project-badge">Destaque</span>
-                    </div>
-                    <p class="project-description">
-                        Sistema completo de cadastro de pacientes com geração de QR Code, desenvolvido com PHP e SQL. 
-                        Interface moderna criada no Figma com funcionalidades avançadas e banco de dados robusto.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">Figma</span>
-                        <span class="tech-tag">QR Code</span>
-                    </div>
-                    <a href="https://artur-source.github.io/RegiFlex/" class="project-link" target="_blank" rel="noopener noreferrer">
-                        Ver Projeto →
-                    </a>
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <h4>Auxiliar Técnico | Ci Informática</h4>
+                    <p class="periodo">Setembro 2025 - Atualmente</p>
+                    <p>Suporte técnico e manutenção de rotinas operacionais. Atuação na organização de processos e análise de ocorrências, ampliando a capacidade de resolução de problemas em ambiente de TI.</p>
                 </div>
-
-                <!-- Projeto 2: Landing Pages -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Landing Pages</h3>
-                    </div>
-                    <p class="project-description">
-                        Coleção de landing pages responsivas criadas com HTML/CSS puro e Elementor, focadas em conversão 
-                        e experiência do usuário. Otimizadas para SEO e performance.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">Elementor</span>
-                        <span class="tech-tag">WordPress</span>
-                    </div>
-                    <a href="#contact" class="project-link">
-                        Solicitar Detalhes →
-                    </a>
-                </div>
-
-                <!-- Projeto 3: Scripts Python -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Scripts Python & Automações</h3>
-                    </div>
-                    <p class="project-description">
-                        Automações e scripts Python para cálculos, web scraping e demonstrações de machine learning 
-                        com modelos preditivos. Soluções práticas para otimização de processos.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Machine Learning</span>
-                    </div>
-                    <a href="#contact" class="project-link">
-                        Solicitar Detalhes →
-                    </a>
-                </div>
-
-                <!-- Projeto 4: JV STORE -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>JV STORE</h3>
-                    </div>
-                    <p class="project-description">
-                        Catálogo estático completo desenvolvido com HTML, CSS, JS e JSON.
-                        Interface responsiva com filtros, busca em tempo real e ícones por categoria.
-                        Fluxo direto de compra via WhatsApp e integração com Instagram.
-                        Design minimalista, consistente e otimizado para mobile.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">JSON</span>
-                        <span class="tech-tag">WhatsApp</span>
-                        <span class="tech-tag">Instagram</span>
-                    </div>
-                    <a href="https://artur-source.github.io/JVSTORE/" class="project-link" target="_blank" rel="noopener noreferrer">
-                        Ver Projeto →
-                    </a>
+                <div class="experience-item">
+                    <h4>Estagiário | Ci Informática</h4>
+                    <p class="periodo">Março 2025 - Setembro 2025</p>
+                    <p>Suporte operacional e aplicação de lógica na resolução de problemas. Desenvolvimento de disciplina técnica e aprimoramento da comunicação em equipe.</p>
                 </div>
             </div>
         </div>
@@ -277,64 +258,28 @@
          ================================================================ -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Vamos Trabalhar Juntos?</h2>
-            <p class="contact-subtitle">Entre em contato para discutir seu próximo projeto</p>
+            <h2 class="section-title">Contato</h2>
+            <p class="contact-subtitle">Meios objetivos de contato e links diretos.</p>
             
-            <div class="contact-content">
-                <!-- Formulário de Contato -->
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Assunto</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                </form>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>WhatsApp</h4>
+                    <a href="https://wa.me/5511940572858?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20entrar%20em%20contato." target="_blank" rel="noopener noreferrer">+55 (11) 94057-2858</a>
+                </div>
+                
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <a href="mailto:arturalvessantos2@gmail.com">arturalvessantos2@gmail.com</a>
+                </div>
+                
+                <div class="contact-item">
+                    <h4>GitHub</h4>
+                    <a href="https://github.com/artur-source" target="_blank" rel="noopener noreferrer">/artur-source</a>
+                </div>
 
-                <!-- Informações de Contato -->
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h4>Email</h4>
-                        <a href="mailto:arturalvessantos2@gmail.com">arturalvessantos2@gmail.com</a>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <h4>Telefone</h4>
-                        <a href="tel:+5511940572858">+55 (11) 94057-2858</a>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <h4>Localização</h4>
-                        <p>Itaquaquecetuba - São Paulo/SP</p>
-                    </div>
-
-                    <div class="contact-item">
-                        <h4>Redes Sociais</h4>
-                        <div class="social-links">
-                            <a href="https://github.com/artur-source" target="_blank" rel="noopener noreferrer">GitHub</a>
-                            <a href="https://instagram.com/oalves.sant" target="_blank" rel="noopener noreferrer">Instagram</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <h4>Currículo</h4>
-                        <a href="https://artur-source.github.io/artur-alves-curriculo/" target="_blank" rel="noopener noreferrer">Ver Currículo Completo</a>
-                    </div>
+                <div class="contact-item">
+                    <h4>Currículo</h4>
+                    <a href="https://artur-source.github.io/artur-alves-curriculo/" target="_blank" rel="noopener noreferrer">Ver Currículo</a>
                 </div>
             </div>
         </div>
