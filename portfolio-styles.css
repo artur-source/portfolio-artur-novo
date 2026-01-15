@@ -1,6 +1,7 @@
 /* ====================================================================
-   PORTFÓLIO PROFISSIONAL - ESTILOS COMPLETOS
-   Autor: PortfolioPro | Versão: 1.0.0
+   PORTFÓLIO PROFISSIONAL - DESIGN ART DÉCO
+   Tipografia: Fontes geométricas display + sans-serif neutro
+   Cores: Preto, branco, dourado/bronze, tons profundos (esmeralda, safira)
    ==================================================================== */
 
 /* ====================================================================
@@ -14,30 +15,30 @@
 }
 
 :root {
-    /* Cores Primárias (Azul: Confiança, Tecnologia) */
-    --color-primary: #2563EB;
-    --color-primary-light: #3B82F6;
-    --color-primary-dark: #1D4ED8;
-
+    /* Paleta Art Déco */
+    --color-primary-dark: #000000;
+    --color-primary-light: #FFFFFF;
+    --color-accent-gold: #D4AF37;
+    --color-accent-bronze: #CD7F32;
+    --color-accent-emerald: #2D5016;
+    --color-accent-sapphire: #0F52BA;
+    --color-accent-ruby: #8B0000;
+    
     /* Cores Neutras */
-    --color-text-dark: #1F2937;
-    --color-text-medium: #4B5563;
-    --color-text-light: #9CA3AF;
-
-    /* Fundo (Modo Claro) */
+    --color-text-dark: #1A1A1A;
+    --color-text-medium: #4A4A4A;
+    --color-text-light: #8A8A8A;
+    
+    /* Fundo */
     --color-background: #FFFFFF;
-    --color-surface: #F9FAFB;
-    --color-border: #E5E7EB;
-
-    /* Cores de Feedback */
-    --color-success: #059669;
-    --color-warning: #F59E0B;
-    --color-error: #EF4444;
-
-    /* Tipografia */
+    --color-surface: #F5F5F5;
+    --color-border: #E0E0E0;
+    
+    /* Tipografia Art Déco */
+    --font-family-display: 'Georgia', 'Garamond', serif;
     --font-family-heading: 'Inter', sans-serif;
     --font-family-body: 'Source Sans 3', sans-serif;
-
+    
     /* Tamanhos */
     --font-size-base: 1rem;
     --font-size-sm: 0.875rem;
@@ -47,42 +48,27 @@
     --font-size-3xl: 1.875rem;
     --font-size-4xl: 2.25rem;
     --font-size-5xl: 3rem;
-
+    
     /* Espaçamento (Base 8px) */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
-
+    
     /* Sombras */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    
     /* Transições */
     --transition-fast: 150ms ease-in-out;
     --transition-base: 300ms ease-in-out;
-    --transition-slow: 500ms ease-in-out;
-
+    
     /* Border Radius */
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
-}
-
-/* Modo Escuro */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-background: #111827;
-        --color-surface: #1F2937;
-        --color-border: #374151;
-        --color-text-dark: #F9FAFB;
-        --color-text-medium: #D1D5DB;
-        --color-text-light: #9CA3AF;
-    }
 }
 
 /* ====================================================================
@@ -99,7 +85,6 @@ body {
     line-height: 1.6;
     color: var(--color-text-medium);
     background-color: var(--color-background);
-    transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 .container {
@@ -117,18 +102,10 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-primary-dark);
+    border-bottom: 3px solid var(--color-accent-gold);
     z-index: 1000;
-    transition: all var(--transition-base);
     backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.95);
-}
-
-@media (prefers-color-scheme: dark) {
-    .header {
-        background-color: rgba(17, 24, 39, 0.95);
-    }
 }
 
 .header-content {
@@ -138,23 +115,25 @@ body {
     padding: var(--spacing-sm) 0;
 }
 
-/* Logo */
 .logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-    border-radius: var(--radius-lg);
+    width: 45px;
+    height: 45px;
+    background-color: var(--color-accent-gold);
+    border: 2px solid var(--color-accent-bronze);
     text-decoration: none;
     font-weight: 700;
-    color: white;
+    color: var(--color-primary-dark);
     font-size: var(--font-size-sm);
-    transition: transform var(--transition-fast);
+    transition: all var(--transition-fast);
+    font-family: var(--font-family-display);
+    letter-spacing: 1px;
 }
 
 .logo:hover {
+    background-color: var(--color-accent-bronze);
     transform: scale(1.05);
 }
 
@@ -163,7 +142,6 @@ body {
     text-align: center;
 }
 
-/* Navegação */
 .nav {
     display: flex;
     gap: var(--spacing-lg);
@@ -171,41 +149,43 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: var(--color-text-medium);
-    font-weight: 500;
+    color: var(--color-accent-gold);
+    font-weight: 600;
     font-size: var(--font-size-sm);
     position: relative;
     transition: color var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-family-heading);
 }
 
-.nav-link::after {
+.nav-link::before {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: -8px;
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-primary);
+    background-color: var(--color-accent-gold);
     transition: width var(--transition-base);
 }
 
 .nav-link:hover {
-    color: var(--color-primary);
+    color: var(--color-primary-light);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::before {
     width: 100%;
 }
 
 .nav-link.active {
-    color: var(--color-primary);
+    color: var(--color-primary-light);
 }
 
-.nav-link.active::after {
+.nav-link.active::before {
     width: 100%;
 }
 
-/* Menu Hamburger (Mobile) */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -219,9 +199,8 @@ body {
 .menu-toggle span {
     width: 24px;
     height: 2px;
-    background-color: var(--color-text-dark);
+    background-color: var(--color-accent-gold);
     transition: all var(--transition-fast);
-    border-radius: 1px;
 }
 
 .menu-toggle.active span:nth-child(1) {
@@ -236,7 +215,6 @@ body {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Responsivo: Mobile */
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
@@ -249,8 +227,8 @@ body {
         left: 0;
         right: 0;
         flex-direction: column;
-        background-color: var(--color-background);
-        border-bottom: 1px solid var(--color-border);
+        background-color: var(--color-primary-dark);
+        border-bottom: 2px solid var(--color-accent-gold);
         padding: var(--spacing-md);
         gap: var(--spacing-sm);
     }
@@ -272,31 +250,71 @@ body {
     margin-top: 80px;
     padding: var(--spacing-xl) var(--spacing-md);
     background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
+    border-bottom: 4px solid var(--color-accent-gold);
     min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-accent-gold) 0px,
+        var(--color-accent-gold) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-accent-gold) 0px,
+        var(--color-accent-gold) 10px,
+        transparent 10px,
+        transparent 20px
+    );
 }
 
 .hero-content {
     text-align: center;
     max-width: 800px;
+    z-index: 1;
 }
 
 .hero-title {
     font-size: var(--font-size-5xl);
     font-weight: 700;
-    color: var(--color-text-dark);
+    color: var(--color-primary-dark);
     margin-bottom: var(--spacing-sm);
     animation: fadeInUp 0.8s ease-out;
+    font-family: var(--font-family-display);
+    letter-spacing: 2px;
 }
 
 .hero-subtitle {
     font-size: var(--font-size-2xl);
-    color: var(--color-primary);
+    color: var(--color-accent-gold);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     animation: fadeInUp 0.8s ease-out 0.1s both;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .hero-description {
@@ -315,7 +333,6 @@ body {
     animation: fadeInUp 0.8s ease-out 0.3s both;
 }
 
-/* Responsivo: Mobile */
 @media (max-width: 768px) {
     .hero {
         margin-top: 70px;
@@ -347,42 +364,45 @@ body {
 .btn {
     display: inline-block;
     padding: var(--spacing-sm) var(--spacing-lg);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     text-decoration: none;
     font-weight: 600;
     font-size: var(--font-size-sm);
-    border: none;
+    border: 2px solid var(--color-primary-dark);
     cursor: pointer;
     transition: all var(--transition-fast);
     text-align: center;
     min-width: 200px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-family-heading);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-    color: white;
-    box-shadow: var(--shadow-md);
+    background-color: var(--color-primary-dark);
+    color: var(--color-accent-gold);
+    border: 2px solid var(--color-accent-gold);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+    background-color: var(--color-accent-gold);
+    color: var(--color-primary-dark);
     box-shadow: var(--shadow-lg);
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
+    color: var(--color-primary-dark);
+    border: 2px solid var(--color-primary-dark);
 }
 
 .btn-secondary:hover {
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--color-primary-dark);
+    color: var(--color-accent-gold);
     transform: translateY(-2px);
 }
 
-/* Responsivo: Mobile */
 @media (max-width: 768px) {
     .btn {
         min-width: auto;
@@ -396,16 +416,36 @@ body {
 
 section {
     padding: var(--spacing-xl) var(--spacing-md);
+    position: relative;
+}
+
+section:nth-child(even) {
+    background-color: var(--color-surface);
 }
 
 .section-title {
     font-size: var(--font-size-4xl);
     font-weight: 700;
-    color: var(--color-text-dark);
+    color: var(--color-primary-dark);
     text-align: center;
     margin-bottom: var(--spacing-xl);
     position: relative;
     padding-bottom: var(--spacing-md);
+    font-family: var(--font-family-display);
+    letter-spacing: 1px;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-accent-gold);
+    border-radius: 0;
+    background: linear-gradient(45deg, var(--color-accent-gold) 50%, transparent 50%);
 }
 
 .section-title::after {
@@ -414,18 +454,11 @@ section {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
-    border-radius: 2px;
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-accent-gold);
 }
 
-/* Seção Alternada */
-section:nth-child(even) {
-    background-color: var(--color-surface);
-}
-
-/* Responsivo: Mobile */
 @media (max-width: 768px) {
     section {
         padding: var(--spacing-lg) var(--spacing-md);
@@ -443,6 +476,8 @@ section:nth-child(even) {
 .about-content {
     max-width: 800px;
     margin: 0 auto;
+    border-left: 4px solid var(--color-accent-gold);
+    padding-left: var(--spacing-lg);
 }
 
 .about-text p {
@@ -453,12 +488,12 @@ section:nth-child(even) {
 }
 
 .about-text strong {
-    color: var(--color-primary);
-    font-weight: 600;
+    color: var(--color-primary-dark);
+    font-weight: 700;
 }
 
 /* ====================================================================
-   8. SEÇÃO TECNOLOGIAS (Antiga Habilidades)
+   8. SEÇÃO TECNOLOGIAS
    ==================================================================== */
 
 .skills-grid {
@@ -469,8 +504,9 @@ section:nth-child(even) {
 
 .skill-card {
     background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
+    border: 2px solid var(--color-primary-dark);
+    border-top: 4px solid var(--color-accent-gold);
+    border-radius: var(--radius-md);
     padding: var(--spacing-lg);
     text-align: center;
     transition: all var(--transition-base);
@@ -480,19 +516,19 @@ section:nth-child(even) {
 .skill-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--color-primary);
 }
 
 .skill-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-    border-radius: var(--radius-lg);
+    background-color: var(--color-primary-dark);
+    border: 2px solid var(--color-accent-gold);
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--spacing-md);
-    color: white;
+    color: var(--color-accent-gold);
 }
 
 .skill-icon svg {
@@ -502,8 +538,9 @@ section:nth-child(even) {
 
 .skill-card h3 {
     font-size: var(--font-size-xl);
-    color: var(--color-text-dark);
+    color: var(--color-primary-dark);
     margin-bottom: var(--spacing-xs);
+    font-weight: 700;
 }
 
 .skill-card p {
@@ -523,8 +560,9 @@ section:nth-child(even) {
 
 .project-card {
     background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
+    border: 2px solid var(--color-primary-dark);
+    border-left: 4px solid var(--color-accent-gold);
+    border-radius: var(--radius-md);
     padding: var(--spacing-lg);
     transition: all var(--transition-base);
     box-shadow: var(--shadow-sm);
@@ -535,7 +573,6 @@ section:nth-child(even) {
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--color-primary);
 }
 
 .project-header {
@@ -548,18 +585,21 @@ section:nth-child(even) {
 
 .project-header h3 {
     font-size: var(--font-size-xl);
-    color: var(--color-text-dark);
+    color: var(--color-primary-dark);
     margin: 0;
+    font-weight: 700;
 }
 
 .project-badge {
-    background-color: var(--color-primary);
+    background-color: var(--color-accent-emerald);
     color: white;
     padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     font-size: var(--font-size-sm);
     font-weight: 600;
     white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .project-details {
@@ -569,12 +609,14 @@ section:nth-child(even) {
 
 .project-details h4 {
     font-size: var(--font-size-base);
-    color: var(--color-primary);
+    color: var(--color-accent-gold);
     font-weight: 700;
     margin-top: var(--spacing-sm);
     margin-bottom: var(--spacing-xs);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 2px solid var(--color-accent-gold);
     padding-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .project-details p {
@@ -593,23 +635,29 @@ section:nth-child(even) {
 
 .tech-tag {
     background-color: var(--color-surface);
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
     padding: 0.375rem 0.75rem;
     border-radius: var(--radius-md);
     font-size: var(--font-size-sm);
     font-weight: 500;
+    border: 1px solid var(--color-accent-gold);
 }
 
 .project-link {
-    color: var(--color-primary);
+    color: var(--color-accent-gold);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     transition: all var(--transition-fast);
     display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--color-accent-gold);
+    padding-bottom: 2px;
 }
 
 .project-link:hover {
     color: var(--color-primary-dark);
+    border-bottom-color: var(--color-primary-dark);
     transform: translateX(4px);
 }
 
@@ -625,8 +673,9 @@ section:nth-child(even) {
 
 .experience-item {
     background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
+    border: 2px solid var(--color-primary-dark);
+    border-top: 4px solid var(--color-accent-gold);
+    border-radius: var(--radius-md);
     padding: var(--spacing-lg);
     transition: all var(--transition-base);
     box-shadow: var(--shadow-sm);
@@ -639,16 +688,19 @@ section:nth-child(even) {
 
 .experience-item h4 {
     font-size: var(--font-size-xl);
-    color: var(--color-text-dark);
+    color: var(--color-primary-dark);
     margin-bottom: var(--spacing-xs);
+    font-weight: 700;
 }
 
 .experience-item .periodo {
     font-size: var(--font-size-sm);
-    color: var(--color-primary);
-    font-weight: 600;
+    color: var(--color-accent-gold);
+    font-weight: 700;
     margin-bottom: var(--spacing-md);
     display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .experience-item p {
@@ -658,7 +710,52 @@ section:nth-child(even) {
 }
 
 /* ====================================================================
-   11. SEÇÃO CONTATO
+   11. SEÇÃO CORE & PATCH
+   ==================================================================== */
+
+.about-company {
+    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+    border-top: 4px solid var(--color-accent-gold);
+    border-bottom: 4px solid var(--color-accent-gold);
+}
+
+.company-content {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 2px solid var(--color-primary-dark);
+    border-left: 4px solid var(--color-accent-gold);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    background-color: var(--color-background);
+}
+
+.company-text p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+.company-text strong {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+}
+
+.company-cta {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+    .company-cta {
+        flex-direction: column;
+    }
+}
+
+/* ====================================================================
+   12. SEÇÃO CONTATO
    ==================================================================== */
 
 .contact-subtitle {
@@ -668,21 +765,37 @@ section:nth-child(even) {
     margin-bottom: var(--spacing-xl);
 }
 
-
-
-/* Informações de Contato */
 .contact-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-lg);
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
+}
+
+.contact-item {
+    background-color: var(--color-background);
+    border: 2px solid var(--color-primary-dark);
+    border-left: 4px solid var(--color-accent-gold);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
 }
 
 .contact-item h4 {
     font-size: var(--font-size-lg);
-    color: var(--color-text-dark);
+    color: var(--color-primary-dark);
     margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .contact-item p {
@@ -690,10 +803,11 @@ section:nth-child(even) {
 }
 
 .contact-item a {
-    color: var(--color-primary);
+    color: var(--color-accent-gold);
     text-decoration: none;
     transition: color var(--transition-fast);
     display: inline-block;
+    font-weight: 700;
 }
 
 .contact-item a:hover {
@@ -703,21 +817,22 @@ section:nth-child(even) {
 .social-links {
     display: flex;
     gap: var(--spacing-md);
+    justify-content: center;
 }
 
-
-
 /* ====================================================================
-   11. FOOTER
+   13. FOOTER
    ==================================================================== */
 
 .footer {
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
+    background-color: var(--color-primary-dark);
+    border-top: 3px solid var(--color-accent-gold);
     padding: var(--spacing-lg) var(--spacing-md);
     text-align: center;
-    color: var(--color-text-light);
+    color: var(--color-accent-gold);
     font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .footer-note {
@@ -745,7 +860,7 @@ section:nth-child(even) {
 }
 
 /* ====================================================================
-   12. UTILITÁRIOS
+   14. UTILITÁRIOS
    ==================================================================== */
 
 .text-center {
@@ -761,11 +876,26 @@ section:nth-child(even) {
 }
 
 .text-primary {
-    color: var(--color-primary);
+    color: var(--color-accent-gold);
 }
 
 /* ====================================================================
-   13. ACESSIBILIDADE
+   15. ANIMAÇÕES
+   ==================================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====================================================================
+   16. ACESSIBILIDADE
    ==================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -776,8 +906,7 @@ section:nth-child(even) {
     }
 }
 
-/* Focus Visible para Acessibilidade */
 :focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-accent-gold);
     outline-offset: 2px;
 }
