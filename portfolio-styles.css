@@ -288,6 +288,7 @@ body::before {
 
 section {
     padding: var(--spacing-xl) var(--spacing-md);
+    scroll-margin-top: 80px;
 }
 
 .section-title {
