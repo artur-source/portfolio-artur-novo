@@ -332,27 +332,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Botão "Solicitar Detalhes" para Landing Pages
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach((card, index) => {
-        const projectLink = card.querySelector('.project-link');
-        
-        if (index === 1) { // Landing Pages (segundo card)
-            projectLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                const message = 'Olá, estava olhando seu portfólio e gostaria de saber mais detalhes sobre landing pages';
-                const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-            });
-        } else if (index === 2) { // Scripts Python (terceiro card)
-            projectLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                const message = 'Olá, estava olhando seu portfólio e gostaria de saber mais detalhes sobre scripts Python e automações';
-                const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-            });
-        }
-    });
+    // Os links dos projetos agora seguem as URLs definidas no HTML
+    // (Removida a interceptação que redirecionava para o WhatsApp)
     
     // Botão "Vamos Trabalhar Juntos?" (Seção de Contato)
     const contactForm = document.getElementById('contactForm');
