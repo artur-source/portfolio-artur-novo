@@ -1,0 +1,134 @@
+---
+title: "Como organizo APIs REST: Boas Práticas para Escalabilidade e Manutenção"
+description: "Explorando as estratégias de design e organização de APIs RESTful, com foco em versionamento, estrutura de rotas, rate limiting e tratamento de erros consistentes."
+date: "2026-07-13"
+tags: ["API REST", "Arquitetura", "Node.js", "TypeScript", "Boas Práticas"]
+readingTime: "11 min"
+---
+
+## O Problema: APIs Desorganizadas e Inconsistentes
+
+Desenvolver APIs REST é uma tarefa comum no dia a dia de um engenheiro full-stack. No entanto, sem um conjunto claro de princípios e padrões, as APIs podem rapidamente se tornar um emaranhado de endpoints inconsistentes, difíceis de manter, escalar e consumir. O problema não é apenas a funcionalidade, mas a **experiência do desenvolvedor (DX)** que consome essa API e a **manutenibilidade** a longo prazo. Como garantir que uma API seja intuitiva, robusta e evolua de forma controlada, especialmente em projetos que crescem rapidamente como os da Core & Patch?
+
+Essa questão foi central na forma como abordamos o design de APIs em projetos como o RegiFlex e outros produtos da Core & Patch, onde a consistência e a clareza são tão importantes quanto a funcionalidade.
+
+### Decisões de Arquitetura: Versionamento e Estrutura de Rotas
+
+Duas decisões fundamentais no design de APIs são o **versionamento** e a **estrutura de rotas**:
+
+1.  **Versionamento de API:**
+    *   **URI Versioning (`/v1/users`):** Simples e explícito, mas pode levar a URLs longas e duplicação de código se as versões divergirem muito.
+    *   **Header Versioning (`Accept: application/vnd.myapi.v1+json`):** Mais limpo na URL, mas menos visível e pode ser mais complexo para clientes simples.
+    *   **Query Parameter Versioning (`/users?version=1`):** Fácil de implementar, mas não é considerado RESTful por muitos, pois o recurso deve ser identificado pela URI.
+
+Para nossos projetos, optamos pelo **URI Versioning (`/api/v1/recurso`)**. Embora possa levar a URLs um pouco mais longas, a clareza e a facilidade de uso para os consumidores da API superam as desvantagens. Isso permite que diferentes versões da API coexistam sem conflitos, facilitando a transição de clientes antigos para novas versões.
+
+2.  **Estrutura de Pastas/Rotas:**
+    Uma estrutura de pastas bem definida no backend é crucial para a organização. Adotamos uma abordagem modular, onde cada recurso (ex: `users`, `products`, `clinics`) tem sua própria pasta contendo:
+    *   `controller.ts`: Lógica de negócio e manipulação de requisições.
+    *   `routes.ts`: Definição das rotas e middlewares.
+    *   `service.ts`: Lógica de acesso a dados e operações complexas.
+    *   `schema.ts`: Validação de entrada e saída (ex: Zod, Yup).
+
+Essa separação de responsabilidades torna o código mais legível, testável e fácil de escalar. Com o tRPC, essa estrutura se traduz em `routers` aninhados, onde cada `router` representa um recurso e contém suas `procedures`.
+
+### Rate Limiting: Protegendo a API
+
+O **rate limiting** é uma medida de segurança e performance essencial para qualquer API, mesmo em projetos pequenos. Ele impede que um único cliente sobrecarregue o servidor com requisições excessivas, protegendo contra ataques DDoS e garantindo a disponibilidade para todos os usuários. As estratégias comuns incluem:
+
+*   **Fixed Window:** Permite X requisições em um período Y (ex: 100 requisições por minuto). Simples, mas pode sofrer com picos no início/fim da janela.
+*   **Sliding Window Log:** Mantém um registro de timestamps de todas as requisições. Mais preciso, mas consome mais memória.
+*   **Sliding Window Counter:** Combina a eficiência do fixed window com a suavidade do sliding window log.
+
+Implementamos o rate limiting usando bibliotecas como `express-rate-limit` (para Express) ou soluções nativas de frameworks/proxies (como Vercel Edge Middleware). A escolha da estratégia depende do nível de precisão e dos recursos disponíveis, mas a necessidade de ter um rate limiting é inegável, mesmo que seja um limite generoso para começar.
+
+### Padrão de Resposta de Erro Consistente
+
+Um dos maiores pontos de dor ao consumir APIs é a inconsistência nas respostas de erro. Uma API bem projetada deve retornar erros de forma padronizada, permitindo que o cliente os trate de maneira previsível. Um padrão comum inclui:
+
+```json
+{
+  "status": "error",
+  "code": "INVALID_INPUT",
+  "message": "Os dados fornecidos são inválidos.",
+  "details": [
+    { "field": "email", "message": "Formato de e-mail inválido." },
+    { "field": "password", "message": "A senha deve ter no mínimo 8 caracteres." }
+  ]
+}
+```
+
+Utilizamos códigos de erro semânticos (ex: `INVALID_INPUT`, `UNAUTHORIZED`, `NOT_FOUND`) em vez de apenas mensagens de texto, facilitando a internacionalização e o tratamento programático. Além disso, os códigos de status HTTP (400, 401, 403, 404, 500) devem ser usados corretamente para indicar a natureza do erro.
+
+### Documentação: O Mínimo Essencial
+
+A documentação é a ponte entre a API e seus consumidores. Para projetos pequenos/médios, não é necessário exagerar em ferramentas complexas como Swagger/OpenAPI desde o início, a menos que a complexidade da API justifique. O mínimo que compensa o esforço é:
+
+*   **README.md:** Um bom README no repositório da API, explicando como autenticar, os principais endpoints e exemplos de uso.
+*   **Comentários no Código:** Comentários claros e concisos nos handlers de rota e schemas de validação.
+*   **Postman/Insomnia Collections:** Uma coleção de requisições pré-configuradas para testar a API, que serve como documentação viva.
+
+Para a Core & Patch, a prioridade é ter uma documentação que seja fácil de manter e que reflita o estado atual da API. Ferramentas mais robustas são introduzidas apenas quando a API atinge um nível de maturidade e complexidade que justifica o investimento.
+
+### Trecho de Código: Handler de Rota com Tratamento de Erro Padronizado
+
+Este exemplo em TypeScript para um backend Node.js com Express demonstra um handler de rota que utiliza um tratamento de erro padronizado:
+
+```typescript
+import { Request, Response, NextFunction } from 'express';
+import { z } from 'zod'; // Exemplo de biblioteca de validação de schema
+
+// Schema de validação para a criação de um usuário
+const createUserSchema = z.object({
+  name: z.string().min(3, 'Nome deve ter no mínimo 3 caracteres.').max(255),
+  email: z.string().email('Formato de e-mail inválido.').max(255),
+  password: z.string().min(8, 'Senha deve ter no mínimo 8 caracteres.').max(255),
+});
+
+// Função utilitária para enviar respostas de erro padronizadas
+const sendErrorResponse = (res: Response, statusCode: number, code: string, message: string, details?: any[]) => {
+  res.status(statusCode).json({
+    status: 'error',
+    code,
+    message,
+    details,
+  });
+};
+
+export const createUserController = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    // 1. Validação da entrada
+    const validatedData = createUserSchema.parse(req.body);
+
+    // 2. Lógica de negócio (ex: criar usuário no banco de dados)
+    // const newUser = await userService.createUser(validatedData);
+    const newUser = { id: 'uuid-fake', ...validatedData }; // Simulação
+
+    // 3. Resposta de sucesso
+    res.status(201).json({
+      status: 'success',
+      data: { id: newUser.id, name: newUser.name, email: newUser.email },
+    });
+
+  } catch (error: any) {
+    if (error instanceof z.ZodError) {
+      // Erro de validação de schema
+      const details = error.errors.map(err => ({ field: err.path.join('.'), message: err.message }));
+      return sendErrorResponse(res, 400, 'INVALID_INPUT', 'Dados de entrada inválidos.', details);
+    }
+
+    // Outros erros inesperados
+    console.error('Erro inesperado no createUserController:', error);
+    sendErrorResponse(res, 500, 'INTERNAL_SERVER_ERROR', 'Ocorreu um erro interno no servidor.');
+  }
+};
+
+// Exemplo de uso em um router Express:
+// router.post('/users', createUserController);
+```
+
+Neste exemplo, a validação de entrada é feita com Zod, e qualquer erro de validação é capturado e formatado em uma resposta de erro padronizada. Erros inesperados também são tratados, garantindo que o cliente sempre receba uma resposta consistente, independentemente da origem do problema.
+
+### Conclusão Prática: APIs como Produtos
+
+Organizar APIs REST de forma eficaz é tratá-las como produtos. Isso significa pensar na experiência do consumidor (o desenvolvedor), na manutenibilidade a longo prazo e na capacidade de evolução. As práticas de versionamento claro, estrutura de rotas modular, rate limiting e tratamento de erros consistente são pilares para construir APIs robustas e escaláveis. Ao adotar essas abordagens, como fazemos na Core & Patch, garantimos que nossas APIs não apenas funcionem, mas também sejam um prazer de usar e manter, contribuindo para a agilidade e o sucesso dos projetos.

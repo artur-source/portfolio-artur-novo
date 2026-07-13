@@ -1,0 +1,100 @@
+---
+title: "Criando um GPT do Zero: Desvendando a Multi-Head Attention"
+description: "Uma jornada de aprendizado construindo um modelo Transformer em PyTorch, explorando a arquitetura do GPT e a importância da Multi-Head Attention."
+date: "2026-07-13"
+tags: ["IA", "GPT", "Transformer", "PyTorch", "NLP", "Machine Learning"]
+readingTime: "12 min"
+---
+
+## O Problema: Entender LLMs Além do Uso de APIs
+
+No cenário atual de Inteligência Artificial, é fácil se contentar em consumir Large Language Models (LLMs) através de APIs como OpenAI, Groq ou Llama. No entanto, para um engenheiro que busca profundidade e a capacidade de inovar, a caixa preta das APIs pode ser limitante. O verdadeiro problema não é a falta de acesso a modelos, mas a **falta de compreensão fundamental** de como esses modelos funcionam internamente. Como otimizar, depurar ou até mesmo criar variações de modelos se a base teórica e prática é superficial?
+
+Foi com essa motivação que embarquei no projeto `gpt-from-scratch`: construir um modelo Transformer, a arquitetura base dos GPTs, do zero em PyTorch. O objetivo não era reinventar a roda, mas sim desmistificar o funcionamento interno, especialmente o mecanismo de **Multi-Head Attention**, que é o coração desses modelos.
+
+### Decisões de Arquitetura: Por Que Construir do Zero?
+
+A decisão de construir um Transformer do zero, em vez de usar bibliotecas de alto nível como `transformers` da Hugging Face, foi puramente pedagógica e estratégica:
+
+1.  **Aprendizado Profundo:** A implementação manual força a compreensão de cada componente: tokenização, embeddings, positional encoding, camadas de atenção, feed-forward networks e o loop de treinamento. Isso revela nuances que o uso de abstrações esconde.
+2.  **Controle Total:** Permite experimentar com cada parte da arquitetura, otimizando para casos de uso específicos ou explorando novas ideias sem as restrições de uma API ou biblioteca pré-definida.
+3.  **Habilidade de Depuração:** Entender o fluxo de dados e as transformações em cada camada é crucial para depurar problemas de performance ou comportamento inesperado em modelos complexos.
+
+O `gpt-from-scratch` foca na implementação do bloco de atenção, que é a parte mais inovadora e complexa do Transformer. A ideia é que, uma vez compreendido esse mecanismo, o restante da arquitetura se torna mais acessível.
+
+### Multi-Head Attention: O Coração do Transformer
+
+A **Multi-Head Attention** permite que o modelo processe diferentes partes da sequência de entrada simultaneamente, focando em diferentes aspectos da informação. Em vez de uma única "cabeça" de atenção que calcula uma única representação ponderada, múltiplas cabeças permitem que o modelo aprenda a focar em diferentes relações e contextos dentro da mesma sequência. Por exemplo, uma cabeça pode focar em dependências sintáticas, enquanto outra foca em relações semânticas.
+
+Cada "cabeça" de atenção projeta as queries (Q), chaves (K) e valores (V) em diferentes subespaços, realiza o cálculo de atenção de forma independente e, em seguida, concatena os resultados, que são então projetados de volta para a dimensão original. Isso enriquece a capacidade do modelo de capturar informações complexas e de longo alcance.
+
+### Trecho de Código: Implementação da Multi-Head Attention
+
+O trecho a seguir, extraído do projeto `gpt-from-scratch`, ilustra a implementação simplificada de um bloco de Multi-Head Self-Attention em PyTorch:
+
+```python
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class MultiHeadSelfAttention(nn.Module):
+    def __init__(self, embed_dim, num_heads, dropout=0.1):
+        super().__init__()
+        self.embed_dim = embed_dim
+        self.num_heads = num_heads
+        self.head_dim = embed_dim // num_heads
+        assert self.head_dim * num_heads == embed_dim, "embed_dim must be divisible by num_heads"
+
+        self.q_proj = nn.Linear(embed_dim, embed_dim, bias=False)
+        self.k_proj = nn.Linear(embed_dim, embed_dim, bias=False)
+        self.v_proj = nn.Linear(embed_dim, embed_dim, bias=False)
+        self.out_proj = nn.Linear(embed_dim, embed_dim, bias=False)
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, x, mask=None):
+        batch_size, seq_len, _ = x.size()
+
+        # 1. Projeções Lineares para Q, K, V
+        q = self.q_proj(x).view(batch_size, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
+        k = self.k_proj(x).view(batch_size, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
+        v = self.v_proj(x).view(batch_size, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
+
+        # 2. Cálculo da Atenção (Scaled Dot-Product Attention)
+        # (batch_size, num_heads, seq_len, head_dim) @ (batch_size, num_heads, head_dim, seq_len)
+        attention_scores = torch.matmul(q, k.transpose(-2, -1)) / (self.head_dim ** 0.5)
+
+        if mask is not None:
+            attention_scores = attention_scores.masked_fill(mask == 0, float("-inf"))
+
+        attention_weights = F.softmax(attention_scores, dim=-1)
+        attention_weights = self.dropout(attention_weights)
+
+        # (batch_size, num_heads, seq_len, seq_len) @ (batch_size, num_heads, seq_len, head_dim)
+        output = torch.matmul(attention_weights, v)
+
+        # 3. Concatenação das Cabeças e Projeção Final
+        output = output.transpose(1, 2).contiguous().view(batch_size, seq_len, self.embed_dim)
+        output = self.out_proj(output)
+
+        return output
+
+# Exemplo de uso:
+# embed_dim = 256
+# num_heads = 8
+# model = MultiHeadSelfAttention(embed_dim, num_heads)
+# input_tensor = torch.randn(1, 10, embed_dim) # batch_size, seq_len, embed_dim
+# output = model(input_tensor)
+# print(output.shape) # torch.Size([1, 10, 256])
+```
+
+Este código demonstra as etapas essenciais: projeções lineares para Q, K, V; cálculo das pontuações de atenção (dot-product escalado); aplicação de máscara (para evitar que o modelo "veja" tokens futuros em tarefas de geração); softmax para obter pesos de atenção; multiplicação pelos valores (V); concatenação das saídas das cabeças; e uma projeção linear final. A visualização da matriz de atenção (`attention_weights`) é uma ferramenta poderosa para entender como o modelo está relacionando diferentes palavras na sequência.
+
+### Conclusão Prática: O Valor do Conhecimento Profundo
+
+Construir um GPT do zero, mesmo que simplificado, oferece uma perspectiva inestimável sobre o funcionamento dos LLMs. Ele ensina que:
+
+-   **APIs são Abstrações:** Embora convenientes, APIs escondem a complexidade e os trade-offs de design. Entender o que está por baixo permite usar as APIs de forma mais eficaz e depurar problemas quando elas falham.
+-   **Otimização é Chave:** O conhecimento dos mecanismos internos permite otimizar modelos para casos de uso específicos, seja ajustando hiperparâmetros, modificando arquiteturas ou escolhendo modelos pré-treinados mais adequados.
+-   **Inovação Requer Base:** A verdadeira inovação em IA muitas vezes vem da modificação ou combinação de arquiteturas existentes, o que é impossível sem uma compreensão profunda.
+
+Esse exercício de `gpt-from-scratch` me permitiu não apenas entender a teoria, mas também aplicar esse conhecimento em projetos reais da Core & Patch, como a **Secretária Digital**, onde a escolha e o ajuste fino de modelos como Groq e Llama 3.3 são feitos com uma base muito mais sólida. A capacidade de ir além do "como usar" para o "como funciona" é o que diferencia um engenheiro de software de um mero usuário de ferramentas.
