@@ -3,226 +3,486 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio profissional de Artur Alves - Desenvolvedor Full-stack | Co-fundador da Core & Patch">
-    <meta name="keywords" content="Desenvolvedor Full-stack, React, Next.js, TypeScript, Node.js, Core & Patch, SaaS, Web Development">
+    <meta name="description" content="Artur Alves - Full Stack Developer especializado em SaaS, IA e sistemas escaláveis. Construo produtos desde a arquitetura até o deploy.">
+    <meta name="keywords" content="Full Stack Developer, SaaS, IA, React, Next.js, Node.js, TypeScript, PostgreSQL, Arquitetura">
     <meta name="author" content="Artur Alves">
-    <title>Artur Alves - Desenvolvedor Full-stack | Portfólio</title>
+    <title>Artur Alves | Full Stack Developer | SaaS, IA, Arquitetura</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Limelight&family=Inter:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="portfolio-styles.css">
     <link rel="stylesheet" href="portfolio-animations.css">
 </head>
 <body>
+    <!-- Header Navigation -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="#home" class="logo" aria-label="Artur Alves - Início"><img src="favicon.png" alt="" class="logo-mark"><span class="logo-text">Artur Alves</span></a>
-                <button class="menu-toggle" aria-label="Abrir menu de navegação"><span></span><span></span><span></span></button>
+                <a href="#home" class="logo" aria-label="Artur Alves - Início">
+                    <img src="favicon.png" alt="" class="logo-mark">
+                    <span class="logo-text">Artur Alves</span>
+                </a>
+                <button class="menu-toggle" aria-label="Abrir menu de navegação">
+                    <span></span><span></span><span></span>
+                </button>
                 <nav class="nav">
                     <a href="#home" class="nav-link">Início</a>
-                    <a href="#about" class="nav-link">Sobre</a>
+                    <a href="#specialties" class="nav-link">Especialidades</a>
                     <a href="#projects" class="nav-link">Projetos</a>
-                    <a href="#skills" class="nav-link">Tecnologias</a>
-                    <a href="#experience" class="nav-link">Experiência</a>
+                    <a href="#architecture" class="nav-link">Arquitetura</a>
+                    <a href="#open-source" class="nav-link">Open Source</a>
+                    <a href="#process" class="nav-link">Processo</a>
                     <a href="#contact" class="nav-link">Contato</a>
                 </nav>
             </div>
         </div>
     </header>
 
+    <!-- 1. HERO SECTION -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Artur Alves</h1>
-                <p class="hero-subtitle">Desenvolvedor Full-stack | Co-fundador da Core & Patch</p>
-                <p class="hero-description">Construo produtos SaaS, automações e aplicações web com React, TypeScript, Node.js e PostgreSQL. Também desenvolvo projetos de IA/ML com Python, PyTorch e HuggingFace.</p>
+                <p class="hero-subtitle">Full Stack Developer especializado em SaaS, IA e sistemas escaláveis</p>
+                <p class="hero-description">Construo produtos utilizados por empresas usando React, Next.js, Node.js, PostgreSQL e Python, desde a arquitetura até o deploy.</p>
+                
+                <!-- Quick Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Produtos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Tecnologias</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Projetos IA</span>
+                    </div>
+                </div>
+
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">Ver Projetos</a>
-                    <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
+                    <a href="#contact" class="btn btn-secondary">Contato</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
+    <!-- 2. SPECIALTIES SECTION -->
+    <section id="specialties" class="specialties">
         <div class="container">
-            <h2 class="section-title">Sobre</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Desenvolvedor Full-stack e Co-fundador da <strong>Core & Patch</strong>, com atuação em produtos SaaS, aplicações web com React, TypeScript e projetos de IA/ML com PyTorch e HuggingFace.</p>
-                    <p><strong>Habilidades Práticas:</strong> Desenvolvimento web com React.js, Next.js, TypeScript e Node.js. Experiência em arquiteturas multi-tenant, integração de APIs complexas e modelos de linguagem aplicados.</p>
-                    <p><strong>Foco Profissional:</strong> Transformar requisitos de negócio em produtos digitais de alta performance e segurança, com foco em escalabilidade e UX.</p>
-                    <p><strong>Tecnologias Principais:</strong> React, Next.js, TypeScript, Node.js, PostgreSQL, Drizzle, Tailwind CSS, Python, PyTorch, HuggingFace Transformers.</p>
+            <h2 class="section-title">Especialidades</h2>
+            <div class="specialties-grid">
+                <div class="specialty-card">
+                    <h3>SaaS</h3>
+                    <p>Arquitetura multi-tenant, escalabilidade, faturamento e gestão de clientes.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>APIs REST</h3>
+                    <p>Design robusto, autenticação, rate limiting e documentação.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Arquitetura Multi-tenant</h3>
+                    <p>Isolamento de dados, performance e segurança.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Integrações</h3>
+                    <p>Stripe, Supabase, OpenAI, webhooks e APIs externas.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Autenticação</h3>
+                    <p>JWT, OAuth2, MFA e segurança de sessão.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Dashboards</h3>
+                    <p>Visualizações de dados, gráficos e relatórios em tempo real.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 3. METRICS SECTION -->
+    <section id="metrics" class="metrics">
+        <div class="container">
+            <h2 class="section-title">Números & Impacto</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>RegiFlex</h3>
+                    <ul class="metric-list">
+                        <li>✓ 20+ telas funcionais</li>
+                        <li>✓ Arquitetura Multi-tenant</li>
+                        <li>✓ Integração Stripe</li>
+                        <li>✓ QR Code dinâmico</li>
+                    </ul>
+                </div>
+                <div class="metric-card">
+                    <h3>JV Store</h3>
+                    <ul class="metric-list">
+                        <li>✓ Gestão de inventário real-time</li>
+                        <li>✓ Checkout otimizado</li>
+                        <li>✓ Core Web Vitals A+</li>
+                        <li>✓ Mobile-first</li>
+                    </ul>
+                </div>
+                <div class="metric-card">
+                    <h3>Core & Patch</h3>
+                    <ul class="metric-list">
+                        <li>✓ Múltiplos produtos digitais</li>
+                        <li>✓ Arquitetura escalável</li>
+                        <li>✓ Foco em segurança</li>
+                        <li>✓ Metodologia Core & Patch</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PROJECTS SECTION -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Projetos</h2>
+            <h2 class="section-title">Projetos em Destaque</h2>
             <div class="projects-grid">
-                <!-- Projeto 1: RegiFlex -->
-                <div class="project-card">
+                <!-- RegiFlex -->
+                <div class="project-card featured">
                     <div class="project-header">
                         <h3>RegiFlex</h3>
                         <span class="project-badge">Destaque</span>
                     </div>
                     <div class="project-details">
-                        <h4>Função</h4>
-                        <p>Desenvolvimento full-stack de uma plataforma SaaS para gestão de saúde.</p>
-                        <h4>Problema</h4>
-                        <p>Necessidade de gestão eficiente de pacientes com rastreabilidade e segurança de dados.</p>
-                        <h4>Solução</h4>
-                        <p>Plataforma SaaS com rastreabilidade via <strong>QR Code</strong>, UX otimizada para o setor de saúde e backend robusto.</p>
-                        <h4>Resultado</h4>
-                        <p>Sistema escalável que melhora a eficiência operacional e a experiência do paciente.</p>
+                        <p class="project-description">Plataforma SaaS para gestão de saúde com rastreabilidade via QR Code.</p>
+                        <div class="tech-stack">
+                            <span>Next.js</span>
+                            <span>TypeScript</span>
+                            <span>PostgreSQL</span>
+                            <span>Supabase</span>
+                            <span>Stripe</span>
+                        </div>
                     </div>
-                    <a href="https://appregiflex.com.br" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto →</a>
+                    <div class="project-cta">
+                        <a href="https://appregiflex.com.br" class="btn-link" target="_blank" rel="noopener noreferrer">Live Demo →</a>
+                        <a href="#" class="btn-link">GitHub</a>
+                    </div>
                 </div>
 
-                <!-- Projeto 2: JV STORE -->
+                <!-- JV Store -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>JV STORE</h3>
+                        <h3>JV Store</h3>
                     </div>
                     <div class="project-details">
-                        <h4>Função</h4>
-                        <p>Desenvolvimento de e-commerce de alta performance.</p>
-                        <h4>Problema</h4>
-                        <p>Necessidade de uma loja virtual rápida, focada em conversão mobile e gestão de estoque.</p>
-                        <h4>Solução</h4>
-                        <p>E-commerce otimizado com gestão de inventário em tempo real e foco total em performance mobile.</p>
-                        <h4>Resultado</h4>
-                        <p>Loja de alto desempenho com fluxo de compra fluido e carregamento instantâneo.</p>
+                        <p class="project-description">E-commerce otimizado para performance mobile e conversão.</p>
+                        <div class="tech-stack">
+                            <span>Next.js</span>
+                            <span>React</span>
+                            <span>PostgreSQL</span>
+                            <span>Vercel</span>
+                        </div>
                     </div>
-                    <a href="https://jvstore.com.br" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto →</a>
+                    <div class="project-cta">
+                        <a href="https://jvstore.com.br" class="btn-link" target="_blank" rel="noopener noreferrer">Live Demo →</a>
+                    </div>
                 </div>
 
-                <!-- Projeto 3: Core & Patch -->
+                <!-- Core & Patch -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Core & Patch</h3>
                     </div>
                     <div class="project-details">
-                        <h4>Função</h4>
-                        <p>Co-fundador e Lead Técnico.</p>
-                        <h4>Problema</h4>
-                        <p>Demanda por soluções SaaS modernas e automações personalizadas para empresas.</p>
-                        <h4>Solução</h4>
-                        <p>Criação de uma software house focada em arquiteturas modernas (Next.js, TypeScript, tRPC).</p>
-                        <h4>Resultado</h4>
-                        <p>Desenvolvimento de múltiplos produtos digitais funcionais com foco em segurança e performance.</p>
+                        <p class="project-description">Software house focada em SaaS moderno e arquitetura escalável.</p>
+                        <div class="tech-stack">
+                            <span>Next.js</span>
+                            <span>TypeScript</span>
+                            <span>tRPC</span>
+                            <span>Drizzle</span>
+                        </div>
                     </div>
-                    <a href="https://core-patch-website.vercel.app/" class="project-link" target="_blank" rel="noopener noreferrer">Visitar Empresa →</a>
-                </div>
-
-                <!-- Projeto 4: gpt-from-scratch -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>gpt-from-scratch</h3>
+                    <div class="project-cta">
+                        <a href="https://core-patch-website.vercel.app/" class="btn-link" target="_blank" rel="noopener noreferrer">Visitar →</a>
                     </div>
-                    <div class="project-details">
-                        <h4>Função</h4>
-                        <p>Implementação do zero de um modelo GPT em PyTorch.</p>
-                        <h4>Problema</h4>
-                        <p>Entender a arquitetura Transformer implementando cada componente manualmente, sem usar abstrações de alto nível como nn.MultiheadAttention.</p>
-                        <h4>Solução</h4>
-                        <p>Character-level language model treinado no corpus Shakespeare com Multi-Head Self-Attention implementado do zero, visualização de attention maps e geração de texto com temperature sampling e top-k filtering.</p>
-                        <h4>Resultado</h4>
-                        <p>Modelo funcional que gera texto com estrutura shakespeariana, val_loss ~1.5 no treino completo com 5000 iterações no Colab (GPU T4).</p>
-                        <h4>Tecnologias</h4>
-                        <p>Python, PyTorch, NLP, Transformers</p>
-                    </div>
-                    <a href="https://github.com/artur-source/gpt-from-scratch" class="project-link" target="_blank" rel="noopener noreferrer">Ver no GitHub →</a>
-                </div>
-
-                <!-- Projeto 5: ai-slop-detector -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>ai-slop-detector</h3>
-                    </div>
-                    <div class="project-details">
-                        <h4>Função</h4>
-                        <p>Web app Flask para detectar texto gerado por IA.</p>
-                        <h4>Problema</h4>
-                        <p>Identificar conteúdo gerado por IA comparando abordagens de custo e acurácia diferentes num produto funcional.</p>
-                        <h4>Solução</h4>
-                        <p>DistilBERT fine-tunado no dataset HC3 rodando em paralelo com OpenAI gpt-4o-mini, scraping automático de URLs e interface de resultado lado a lado com barra de score visual.</p>
-                        <h4>Resultado</h4>
-                        <p>11 testes automatizados com pytest, detecção dupla funcional, README bilíngue com diagrama de arquitetura.</p>
-                        <h4>Tecnologias</h4>
-                        <p>Python, Flask, HuggingFace, OpenAI API</p>
-                    </div>
-                    <a href="https://github.com/artur-source/ai-slop-detector" class="project-link" target="_blank" rel="noopener noreferrer">Ver no GitHub →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="skills">
+    <!-- 5. ARCHITECTURE SECTION -->
+    <section id="architecture" class="architecture">
         <div class="container">
-            <h2 class="section-title">Tecnologias</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18M5 3v18M19 3v18"></path></svg></div>
-                    <h3>Linguagens & Frameworks</h3>
-                    <p>React.js, Next.js, TypeScript, Node.js, Python, PHP</p>
+            <h2 class="section-title">Arquitetura Utilizada</h2>
+            <div class="architecture-grid">
+                <div class="arch-item">
+                    <h3>Frontend</h3>
+                    <p>Next.js, React, TypeScript, Tailwind CSS</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20m10-10H2M9 5l-6 6 6 6M15 5l6 6-6 6"></path></svg></div>
-                    <h3>Dados & ORM</h3>
-                    <p>PostgreSQL, Supabase, Drizzle, Prisma, MySQL</p>
+                <div class="arch-item">
+                    <h3>Backend</h3>
+                    <p>Node.js, Express, tRPC, API REST</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M12 6v6l4 2"></path></svg></div>
-                    <h3>Arquitetura & Ferramentas</h3>
-                    <p>tRPC, SaaS Multi-tenant, Docker, Vercel, Git, Figma, Tailwind CSS</p>
+                <div class="arch-item">
+                    <h3>Database</h3>
+                    <p>PostgreSQL, Drizzle ORM, Migrations</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6M10 9h4M8 21h8a4 4 0 0 0 3.46-6L15 7.5V3H9v4.5L4.54 15A4 4 0 0 0 8 21z"></path></svg></div>
-                    <h3>ML / IA</h3>
-                    <p>PyTorch, HuggingFace Transformers, Flask, scikit-learn</p>
+                <div class="arch-item">
+                    <h3>Storage</h3>
+                    <p>Supabase Storage, S3, CDN</p>
+                </div>
+                <div class="arch-item">
+                    <h3>Deploy</h3>
+                    <p>Vercel, Docker, CI/CD com GitHub Actions</p>
+                </div>
+                <div class="arch-item">
+                    <h3>Payments</h3>
+                    <p>Stripe, Webhooks, Faturamento</p>
+                </div>
+                <div class="arch-item">
+                    <h3>Auth</h3>
+                    <p>JWT, OAuth2, MFA, Session Management</p>
+                </div>
+                <div class="arch-item">
+                    <h3>Monitoring</h3>
+                    <p>Sentry, LogRocket, Analytics</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="experience">
+    <!-- 6. OPEN SOURCE SECTION -->
+    <section id="open-source" class="open-source">
         <div class="container">
-            <h2 class="section-title">Experiência</h2>
-            <div class="experience-grid">
-                <div class="experience-item">
-                    <h4>Co-fundador & Lead Técnico | Core & Patch</h4>
-                    <p class="periodo">Janeiro 2024 – Presente</p>
-                    <p>Liderança técnica no desenvolvimento de sistemas SaaS multi-tenant e automações personalizadas. Gestão completa do ciclo de vida do software.</p>
+            <h2 class="section-title">Open Source</h2>
+            <div class="open-source-grid">
+                <div class="os-card">
+                    <h3>gpt-from-scratch</h3>
+                    <p>Implementação do zero de um modelo GPT em PyTorch com Multi-Head Self-Attention.</p>
+                    <div class="os-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="os-tech">
+                        <span>Python</span>
+                        <span>PyTorch</span>
+                        <span>NLP</span>
+                    </div>
+                    <a href="https://github.com/artur-source/gpt-from-scratch" class="btn-link" target="_blank" rel="noopener noreferrer">Ver Código →</a>
                 </div>
-                <div class="experience-item">
-                    <h4>Analista de Suporte Júnior | CI Informática</h4>
-                    <p class="periodo">2026 – Presente</p>
-                    <p>Suporte técnico a sistemas SaaS e aplicações locais. Diagnóstico de falhas, análise de logs e apoio à estabilidade operacional.</p>
-                </div>
-                <div class="experience-item">
-                    <h4>Auxiliar Técnico | CI Informática</h4>
-                    <p class="periodo">2025 – 2026</p>
-                    <p>Atendimento a clientes, suporte operacional, instalação e configuração de sistemas.</p>
-                </div>
-                <div class="experience-item">
-                    <h4>Estagiário de TI | CI Informática</h4>
-                    <p class="periodo">2025</p>
-                    <p>Suporte técnico, testes de funcionalidades e documentação de processos.</p>
+
+                <div class="os-card">
+                    <h3>ai-slop-detector</h3>
+                    <p>Web app para detectar texto gerado por IA com DistilBERT e GPT-4.</p>
+                    <div class="os-stars">⭐⭐⭐⭐</div>
+                    <div class="os-tech">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>HuggingFace</span>
+                    </div>
+                    <a href="https://github.com/artur-source/ai-slop-detector" class="btn-link" target="_blank" rel="noopener noreferrer">Ver Código →</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 7. STACK SECTION -->
+    <section id="stack" class="stack">
+        <div class="container">
+            <h2 class="section-title">Stack Técnico</h2>
+            <div class="stack-grid">
+                <div class="stack-category">
+                    <h3>Frontend</h3>
+                    <div class="stack-items">
+                        <span>React</span>
+                        <span>Next.js</span>
+                        <span>TypeScript</span>
+                        <span>Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <h3>Backend</h3>
+                    <div class="stack-items">
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>tRPC</span>
+                        <span>GraphQL</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <h3>Database & ORM</h3>
+                    <div class="stack-items">
+                        <span>PostgreSQL</span>
+                        <span>Supabase</span>
+                        <span>Drizzle</span>
+                        <span>Prisma</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <h3>DevOps & Deploy</h3>
+                    <div class="stack-items">
+                        <span>Docker</span>
+                        <span>Vercel</span>
+                        <span>GitHub Actions</span>
+                        <span>AWS</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <h3>Payments & Auth</h3>
+                    <div class="stack-items">
+                        <span>Stripe</span>
+                        <span>JWT</span>
+                        <span>OAuth2</span>
+                        <span>Supabase Auth</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <h3>IA & ML</h3>
+                    <div class="stack-items">
+                        <span>PyTorch</span>
+                        <span>HuggingFace</span>
+                        <span>OpenAI API</span>
+                        <span>scikit-learn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PROCESS SECTION -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="section-title">Como Eu Trabalho</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>Entendimento do Problema</h3>
+                    <p>Análise profunda dos requisitos, desafios e objetivos do negócio.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>Arquitetura</h3>
+                    <p>Design de sistema escalável, seguro e performático.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>Desenvolvimento</h3>
+                    <p>Implementação com código limpo, testes e documentação.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h3>Testes</h3>
+                    <p>Testes unitários, integração e E2E para qualidade.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">05</div>
+                    <h3>Deploy</h3>
+                    <p>Deployment em produção com zero downtime.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">06</div>
+                    <h3>Monitoramento</h3>
+                    <p>Acompanhamento de performance e erros em tempo real.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">07</div>
+                    <h3>Evolução Contínua</h3>
+                    <p>Melhorias iterativas baseadas em dados e feedback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. TIMELINE SECTION -->
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2 class="section-title">Trajetória</h2>
+            <div class="timeline-items">
+                <div class="timeline-item">
+                    <div class="timeline-marker">2024</div>
+                    <h3>Core & Patch</h3>
+                    <p>Co-fundador & Lead Técnico. Liderança técnica no desenvolvimento de sistemas SaaS multi-tenant.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">2025</div>
+                    <h3>CI Informática</h3>
+                    <p>Auxiliar Técnico → Analista de Suporte. Suporte a sistemas SaaS e diagnóstico de falhas.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">2026</div>
+                    <h3>Presente</h3>
+                    <p>Desenvolvimento de produtos SaaS, IA e arquitetura escalável. Consultoria técnica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. BLOG SECTION -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title">Artigos & Conhecimento</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <h3>Como construí um SaaS Multi-Tenant</h3>
+                    <p>Guia completo sobre arquitetura multi-tenant, isolamento de dados e escalabilidade.</p>
+                    <a href="#" class="btn-link">Ler Artigo →</a>
+                </article>
+                <article class="blog-card">
+                    <h3>Criando um GPT do Zero</h3>
+                    <p>Implementação passo a passo de um modelo Transformer com PyTorch e Multi-Head Attention.</p>
+                    <a href="#" class="btn-link">Ler Artigo →</a>
+                </article>
+                <article class="blog-card">
+                    <h3>Autenticação com JWT</h3>
+                    <p>Segurança, refresh tokens, e boas práticas em autenticação moderna.</p>
+                    <a href="#" class="btn-link">Ler Artigo →</a>
+                </article>
+                <article class="blog-card">
+                    <h3>Como organizo APIs REST</h3>
+                    <p>Estrutura, versionamento, rate limiting e documentação de APIs profissionais.</p>
+                    <a href="#" class="btn-link">Ler Artigo →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. CTA SECTION -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Vamos construir algo?</h2>
+            <p class="cta-subtitle">Estou disponível para projetos SaaS, consultoria técnica e desenvolvimento full-stack.</p>
+            
+            <div class="cta-services">
+                <div class="service-item">
+                    <h3>Desenvolvimento Full Stack</h3>
+                    <p>Produtos completos do zero até produção.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Projetos SaaS</h3>
+                    <p>Arquitetura escalável e multi-tenant.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Consultoria Técnica</h3>
+                    <p>Arquitetura, performance e segurança.</p>
+                </div>
+                <div class="service-item">
+                    <h3>IA & Automações</h3>
+                    <p>Integração com LLMs e automações inteligentes.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Integrações</h3>
+                    <p>APIs, Stripe, Supabase, OpenAI e mais.</p>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="https://wa.me/5511940572858?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20entrar%20em%20contato." class="btn btn-primary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="https://linkedin.com/in/artur-alves-santos" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:arturalvessantos2@gmail.com" class="btn btn-secondary">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contato</h2>
-            <p class="contact-subtitle">Meios objetivos de contato e links diretos.</p>
+            <h2 class="section-title">Contato Direto</h2>
             <div class="contact-info">
                 <div class="contact-item">
                     <h4>WhatsApp</h4>
@@ -234,15 +494,11 @@
                 </div>
                 <div class="contact-item">
                     <h4>GitHub</h4>
-                    <a href="https://github.com/artur-source" target="_blank" rel="noopener noreferrer">/artur-source</a>
+                    <a href="https://github.com/artur-source" target="_blank" rel="noopener noreferrer">github.com/artur-source</a>
                 </div>
                 <div class="contact-item">
                     <h4>LinkedIn</h4>
-                    <a href="https://linkedin.com/in/artur-alves-santos" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                </div>
-                <div class="contact-item">
-                    <h4>Currículo</h4>
-                    <a href="https://artur-source.github.io/artur-alves-curriculo/" target="_blank" rel="noopener noreferrer">Ver Currículo</a>
+                    <a href="https://linkedin.com/in/artur-alves-santos" target="_blank" rel="noopener noreferrer">linkedin.com/in/artur-alves-santos</a>
                 </div>
             </div>
         </div>
